@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 14% 96%;
+    --foreground: 220 20% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 12%;
+
+    --primary: 0 72% 46%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 145 55% 38%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 12% 91%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 145 55% 38%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 46%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 10% 86%;
+    --input: 220 10% 86%;
+    --ring: 0 72% 46%;
+
+    --radius: 0.75rem;
+
+    --warning: 35 90% 52%;
+    --success: 145 60% 40%;
+    --info: 215 16% 47%;
+
+    --glass-bg: rgba(255, 255, 255, 0.88);
+    --glass-border: rgba(0, 0, 0, 0.07);
+    --glass-blur: 20px;
+    --glow-primary: 0 0 24px rgba(190, 30, 30, 0.10);
+    --glow-success: 0 0 24px rgba(40, 160, 80, 0.10);
+    --glow-danger: 0 0 24px rgba(190, 30, 30, 0.14);
+
+    --sidebar-background: 220 14% 96%;
+    --sidebar-foreground: 220 20% 12%;
+    --sidebar-primary: 0 72% 46%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 145 55% 38%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 10% 86%;
+    --sidebar-ring: 0 72% 46%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  }
+  .glass-panel-active {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1.5px solid rgba(190, 30, 30, 0.2);
+    border-radius: var(--radius);
+    box-shadow: var(--glow-primary), 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  .glow-success {
+    box-shadow: var(--glow-success);
+  }
+  .glow-danger {
+    box-shadow: var(--glow-danger);
+  }
+  .gradient-bg {
+    background: linear-gradient(145deg, hsl(220 14% 95%) 0%, hsl(145 12% 94%) 50%, hsl(220 14% 95%) 100%);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.leaflet-container {
+  background: hsl(220 10% 94%) !important;
+  border-radius: var(--radius);
+}
+.leaflet-tile-pane {
+  filter: brightness(0.97) saturate(0.82) contrast(1.04);
+}
+.leaflet-control-zoom a {
+  background: var(--glass-bg) !important;
+  color: hsl(var(--foreground)) !important;
+  border-color: var(--glass-border) !important;
+  backdrop-filter: blur(12px);
+}
